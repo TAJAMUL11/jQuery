@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Slick Arrows</title>
+
+    <!-- jQuery & Slick -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <style>
+      /* Center the slider */
+      .slider-container {
+        max-width: 600px;
+        margin: auto;
+        position: relative;
+      }
+
+      .slider {
+        width: 100%;
+      }
+
+      /* Custom Arrows */
+      .custom-prev,
+      .custom-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+      }
+
+      /* Left Arrow */
+      .custom-prev {
+        left: -60px;
+        background-image: url("./left-arrow.png"); /* Replace with your image */
+      }
+
+      /* Right Arrow */
+      .custom-next {
+        right: -60px;
+        background-image: url("./arrow-right.png"); /* Replace with your image */
+      }
+
+      /* Hover Effect - Change Arrow Image */
+      .custom-prev:hover {
+        transform: scale(0.98);
+      }
+
+      .custom-next:hover {
+        transform: scale(0.98);
+      }
+
+      /* Responsive: Move arrows inside slider on mobile */
+      @media (max-width: 600px) {
+        .custom-prev,
+        .custom-next {
+          top: auto;
+          bottom: -50px;
+          transform: none;
+          left: 25%;
+          right: auto;
+        }
+
+        .custom-next {
+          left: auto;
+          right: 25%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <div>
+          <img src="https://via.placeholder.com/600x300?text=Slide+1" />
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/600x300?text=Slide+2" />
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/600x300?text=Slide+3" />
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/600x300?text=Slide+4" />
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/600x300?text=Slide+5" />
+        </div>
+      </div>
+
+      <!-- Custom Arrow Buttons -->
+      <div class="custom-prev"></div>
+      <div class="custom-next"></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".slider").slick({
+          dots: true,
+          arrows: false, // Disable default arrows
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        });
+
+        // Custom Button Click Events
+        $(".custom-prev").click(function () {
+          $(".slider").slick("slickPrev");
+        });
+
+        $(".custom-next").click(function () {
+          $(".slider").slick("slickNext");
+        });
+      });
+    </script>
+  </body>
+</html>

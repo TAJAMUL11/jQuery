@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slick Slider Example</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <div>
+          <img
+            src="https://media.4-paws.org/c/1/7/8/c178dd618346079f9b96edeacc30563b8de72fb4/Molly_006-2829x1886-2726x1886-1920x1328.webp"
+          />
+        </div>
+        <div>
+          <img
+            src="https://www.whiskas.in/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf2051/files/2024-10/cat-play.png"
+          />
+        </div>
+        <div>
+          <img
+            src="https://www.cdc.gov/healthy-pets/media/images/2024/04/Cat-on-couch.jpg"
+          />
+        </div>
+        <div>
+          <img
+            src="https://bestfriends.org/sites/default/files/styles/hero_dashboard_650/public/hero-dash/Asana3808_Dashboard_Standard.jpg?h=ebad9ecf&itok=kS7Pm7EQ"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="custom-buttons">
+      <button class="prev-btn">Previous</button>
+      <button class="next-btn">Next</button>
+    </div> -->
+
+    <script>
+      //   $(document).ready(function () {
+      //     $(".slider").slick({
+      //       dots: true,
+      //       arrows: true, // Custom buttons use instead
+      //       infinite: true,
+      //       speed: 500,
+      //       slidesToShow: 2,
+      //       slidesToScroll: 1,
+      //       autoplay: true,
+      //       autoplaySpeed: 2000,
+      //       responsive: [
+      //         {
+      //           breakpoint: 768,
+      //           settings: { slidesToShow: 1 },
+      //         },
+      //       ],
+      //     });
+
+      //     $(".prev-btn").click(function () {
+      //       $(".slider").slick("slickPrev");
+      //     });
+
+      //     $(".next-btn").click(function () {
+      //       $(".slider").slick("slickNext");
+      //     });
+      //   });
+
+    //   Center padding
+
+    //   $(".slider").slick({
+    //     centerMode: true,
+    //     centerPadding: "10px",
+    //     slidesToShow: 3,
+    //   });
+
+
+
+    $(document).ready(function(){
+    $('.slider').slick({
+        dots: true, // Show navigation dots
+        arrows: true, // Show next/prev arrows
+        infinite: true, // Infinite loop
+        speed: 500, // Slide transition speed (ms)
+        slidesToShow: 1, // Show 1 slide at a time
+        slidesToScroll: 1, // Scroll 1 slide at a time
+        autoplay: true, // Auto-play enabled
+        autoplaySpeed: 2000 // Time between slides (ms)
+    });
+});
+
+    </script>
+  </body>
+</html>

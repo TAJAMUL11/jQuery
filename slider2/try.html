@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonial Slider</title>
+
+    <!-- jQuery & Slick Slider -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <style>
+      /* General Styling */
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .slider-container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-slide {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .testimonial-slide p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .testimonial-slide .author {
+        font-weight: bold;
+        margin-top: 10px;
+        color: #007bff;
+      }
+
+      /* Custom Arrows */
+      .slick-prev,
+      .slick-next {
+        background: #007bff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         &:hover{
+            border: 1px solid dodgerblue;
+
+         }
+      }
+
+      .slick-prev:before,
+      .slick-next:before {
+        font-size: 20px;
+        color: white;
+      }
+
+      /* Custom Dots */
+      .slick-dots {
+        position: relative;
+        bottom: -10px;
+      }
+
+      .slick-dots li {
+        display: inline-block;
+        margin: 5px;
+      }
+
+      .slick-dots li button {
+        background: #ddd;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .slick-dots .slick-active button {
+        background: #007bff;
+      }
+
+      /* Responsive - Arrows below slides on mobile */
+      @media (max-width: 600px) {
+        .slick-prev,
+        .slick-next {
+          position: relative;
+          top: 10px;
+          margin: 5px;
+        }
+
+        .custom-arrows {
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="testimonial-slide">
+          <p>"Amazing service! The best experience ever."</p>
+          <div class="author">- John Doe</div>
+        </div>
+        <div class="testimonial-slide">
+          <p>"I love how easy and smooth everything was!"</p>
+          <div class="author">- Sarah Smith</div>
+        </div>
+        <div class="testimonial-slide">
+          <p>"A game-changer for my business. Highly recommend!"</p>
+          <div class="author">- Mike Johnson</div>
+        </div>
+        <div class="testimonial-slide">
+          <p>"Excellent customer support and great value."</p>
+          <div class="author">- Emily Davis</div>
+        </div>
+        <div class="testimonial-slide">
+          <p>"One of the best investments I've made this year."</p>
+          <div class="author">- Alex Brown</div>
+        </div>
+      </div>
+
+      <!-- Custom Navigation Arrows for Mobile -->
+      <div class="custom-arrows">
+        <button class="prev-btn">◀ Prev</button>
+        <button class="next-btn">Next ▶</button>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".slider").slick({
+          dots: true, 
+          arrows: true, 
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                arrows: false,
+              },
+            },
+          ],
+        });
+
+        $(".prev-btn").click(function () {
+          $(".slider").slick("slickPrev");
+        });
+
+        $(".next-btn").click(function () {
+          $(".slider").slick("slickNext");
+        });
+      });
+    </script>
+  </body>
+</html>

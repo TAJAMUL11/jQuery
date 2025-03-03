@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Accordion</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .accordion {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+      }
+      .accordion-item {
+        margin: 0.5rem 0;
+        border: 1px solid #000;
+      }
+      .accordion-header {
+        background: beige;
+        color: #000;
+        padding: 15px 20px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+      .accordion-content {
+        display: none;
+        padding: 15px 20px;
+        background: orange;
+        color: #fff;
+        font-size: 16px;
+      }
+
+      /* Media Query for Mobile */
+      @media (max-width: 600px) {
+        .accordion {
+          width: 90%;
+        }
+        .accordion-header {
+          font-size: 16px;
+          padding: 12px;
+        }
+        .accordion-content {
+          font-size: 14px;
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">What is jQuery?</div>
+        <div class="accordion-content">
+          jQuery is a lightweight JavaScript library that simplifies HTML DOM
+          manipulation.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">How does an accordion work?</div>
+        <div class="accordion-content">
+          An accordion shows or hides content when a section header is clicked.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">Why use jQuery?</div>
+        <div class="accordion-content">
+          jQuery makes it easier to handle events, animations, and AJAX calls.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".accordion-header").click(function () {
+          $(".accordion-content").slideUp();
+          $(".accordion-header").removeClass("active");
+          if (!$(this).next(".accordion-content").is(":visible")) {
+            $(this).next(".accordion-content").slideDown();
+            $(this).addClass("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
