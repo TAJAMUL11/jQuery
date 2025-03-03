@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slick Slider Example</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+    <style>
+      .slider-container {
+        width: 500px; /* Adjust as needed */
+        margin: 0 auto;
+        position: relative; /* For positioning arrows */
+      }
+      .slick-prev,
+      .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        font-size: 20px; /* Adjust size as needed */
+        background: orange; /* Example background */
+        border: none;
+        cursor: pointer;
+      }
+      .slick-prev:hover,
+      .slick-next:hover,
+      .slick-prev:focus,
+      .slick-next:focus
+      {
+        background-color: orange;
+      }
+      .border{
+        border: 1px solid #222;
+        border-radius: 7px;
+        position: absolute;
+        width: 350px;
+        left: 30px;
+
+      }
+
+      .slick-prev {
+        left: -30px; /* Adjust position */
+      }
+
+      .slick-next {
+        right: -30px; /* Adjust position */
+      }
+      .slide {
+        background-color: lightblue;
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="single-item">
+        <div class="slide">
+            <div class="border"></div>
+          <h3>1</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas eius, voluptates facere et dolor ullam quos nisi ex? Veritatis!</p>
+        </div>
+        <div class="slide">
+            <div class="border"></div>
+          <h3>2</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas eius, voluptates facere et dolor ullam quos nisi ex? Veritatis!</p>
+        </div>
+        <div class="slide">
+          <h3>3</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas eius, voluptates facere et dolor ullam quos nisi ex? Veritatis!</p>
+        </div>
+        <div class="slide">
+          <h3>4</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas eius, voluptates facere et dolor ullam quos nisi ex? Veritatis!</p>
+        </div>
+        <div class="slide">
+          <h3>5</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas eius, voluptates facere et dolor ullam quos nisi ex? Veritatis!</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".single-item").slick({
+          dots: false, // Hide default dots
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true, // Enable custom arrows
+          prevArrow:
+            '<button type="button" class="slick-prev">Previous</button>', // Custom Previous arrow
+          nextArrow: '<button type="button" class="slick-next">Next</button>', // Custom Next arrow
+        });
+      });
+    </script>
+  </body>
+</html>

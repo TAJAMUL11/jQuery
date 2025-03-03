@@ -7,6 +7,54 @@
 
 body{
     background-color: #222;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     color: #fff;
 }
 
+.accordion {
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    padding: 10px;
+    background-color: #f0f0f05c;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none; 
+}
+
+.accordion-header::after {
+    content: '\002B';
+    font-size: 1.5em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-header.active::after {
+    content: '\2212';
+   
+}
+
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    background-color: #f0f0f05c;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.accordion-content.show {
+    border-top: 1px solid #fff;
+    max-height: 500px;
+    padding: 10px; 
+    
+}
+
+.accordion-content p, .accordion-content ul, .accordion-content ol {
+    margin: 0;
+    padding: 0 0 5px; 
+}
