@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Form Validation</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      /* Error message styling */
+      .error-msg {
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+
+      /* Input field styles */
+      .valid {
+        border-color: green;
+      }
+
+      .invalid {
+        border-color: red;
+      }
+
+      /* Submit button */
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+        opacity: 0.6;
+      }
+
+      button:disabled {
+        background: gray;
+        cursor: not-allowed;
+      }
+
+      button.enabled {
+        opacity: 1;
+      }
+
+      /* Status message */
+      #statusMsg {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="liveForm">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-input"
+        placeholder="Enter your name"
+      />
+      <span class="error-msg" id="nameError"></span>
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        class="form-input"
+        placeholder="Enter your email"
+      />
+      <span class="error-msg" id="emailError"></span>
+
+      <button type="submit" disabled>Submit</button>
+    </form>
+
+    <p id="statusMsg"></p>
+
+    <script>
+      $(document).ready(function () {
+        function validateForm() {
+          let isValid = true;
+
+          // Name validation (should not be empty)
+          if ($("#name").val().trim() === "") {
+            $("#nameError").text("Name is required").show();
+            $("#name").addClass("invalid").removeClass("valid");
+            isValid = false;
+          } else {
+            $("#nameError").hide();
+            $("#name").addClass("valid").removeClass("invalid");
+          }
+
+          // Email validation (simple regex check)
+          let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+          if (!emailPattern.test($("#email").val().trim())) {
+            $("#emailError").text("Enter a valid email").show();
+            $("#email").addClass("invalid").removeClass("valid");
+            isValid = false;
+          } else {
+            $("#emailError").hide();
+            $("#email").addClass("valid").removeClass("invalid");
+          }
+
+          // Enable/Disable Submit Button
+          if (isValid) {
+            $("button").prop("disabled", false).addClass("enabled");
+          } else {
+            $("button").prop("disabled", true).removeClass("enabled");
+          }
+        }
+
+        // Real-time validation on keyup and blur
+        $("#name, #email").on("keyup blur", validateForm);
+
+        // Submit event
+        $("#liveForm").submit(function (event) {
+          event.preventDefault();
+
+          $("#statusMsg")
+            .text("Form submitted successfully!")
+            .css("color", "green");
+
+          // Clear inputs after submission
+          $("#name, #email").val("").removeClass("valid invalid");
+          $("button").prop("disabled", true).removeClass("enabled"); // Disable submit button again
+        });
+      });
+    </script>
+  </body>
+</html>

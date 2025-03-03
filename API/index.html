@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch All Users</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit User Data</h2>
+
+        <form id="apiForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your name">
+            <span class="error-msg" id="nameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-input" placeholder="Enter your email">
+            <span class="error-msg" id="emailError"></span>
+
+            <button type="submit" disabled>Submit</button>
+            <div class="spinner" id="submitSpinner"></div>
+        </form>
+
+        <p id="statusMsg"></p>
+
+        <h2>Retrieved Users</h2>
+        <button id="fetchUsers">Fetch All Users</button>
+        <div class="spinner" id="fetchSpinner"></div>
+        <ul id="userList"></ul>
+    </div>
+
+    <!-- Link JS -->
+    <script src="index.js"></script>
+
+</body>
+</html>
